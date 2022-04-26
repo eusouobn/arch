@@ -2,9 +2,9 @@
 
 timedatectl set-ntp true
 
-pacman -S btrfs-progs dosfstools nano wget
+pacman -S btrfs-progs dosfstools nano wget wipe
 
-fdisk /dev/sda
+wipe -r /dev/sda
 
 cfdisk
 
