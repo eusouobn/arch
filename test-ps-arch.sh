@@ -1,5 +1,7 @@
 #!/bin/bash
 
+curl -s "https://archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
+
 pacman -S networkmanager intel-ucode grub efibootmgr
 
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
