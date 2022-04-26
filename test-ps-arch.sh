@@ -18,8 +18,6 @@ echo -e `thinkpad-arch` | tee /etc/hostname
 
 echo -e "127.0.0.1      localhost.localdomain   localhost\n::1          localhost.localdomain   localhost\n127.0.1.1    thinkpad-arch.localdomain       thinkpad-arch" | tee /etc/hosts
 
-systemctl enable NetworkManager
-
 mkinitcpio -P
 
 passwd
@@ -31,5 +29,11 @@ passwd bn
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch --removable
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+pacman -S xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter mousepad galculator xfce4-screenshooter ristretto mousepad hardinfo audacious --noconfirm
+
+
+systemctl enable NetworkManager lightdm
+
 
 exit
