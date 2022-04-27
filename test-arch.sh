@@ -4,13 +4,19 @@ timedatectl set-ntp true
 
 pacman -S btrfs-progs dosfstools nano wget wipe
 
-wipe -r /dev/sda
+parted /dev/sdx
 
-cfdisk
+mklabel gpt
 
-mkfs.fat /dev/sda1
+mkpart "EFI system partition" fat32 1MiB 301MiB
 
-mkfs.btrfs /dev/sda2
+set 1 esp on
+
+mkpart "root" btrfs 301MiB 100%
+
+#mkfs.fat /dev/sda1
+
+#mkfs.btrfs /dev/sda2
 
 mkdir /mnt/boot/efi
 
@@ -20,7 +26,7 @@ mount /dev/sda1 /mnt/boot/efi
 
 pacstrap /mnt base linux-zen linux-firmware
 
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt > /mnt/etc/fstab
 
 cd /mnt
 
