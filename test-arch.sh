@@ -4,15 +4,13 @@ timedatectl set-ntp true
 
 pacman -S btrfs-progs dosfstools nano wget wipe
 
-parted /dev/sdx
+parted /dev/sda mklabel gpt
 
-mklabel gpt
+parted /dev/sda mkpart "EFI system partition" fat32 1MiB 301MiB
 
-mkpart "EFI system partition" fat32 1MiB 301MiB
+parted /dev/sda set 1 esp on
 
-set 1 esp on
-
-mkpart "root" btrfs 301MiB 100%
+parted /dev/sda mkpart "root" btrfs 301MiB 100%
 
 #mkfs.fat /dev/sda1
 
