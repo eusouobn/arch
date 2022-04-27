@@ -1,5 +1,9 @@
 #!/bin/bash
 
+mount /dev/sda1 /boot/efi
+
+pacman -S pacman-contrib --noconfirm
+
 curl -s "https://archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
 
 pacman -S networkmanager intel-ucode grub efibootmgr
@@ -32,7 +36,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch 
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter mousepad galculator xfce4-screenshooter ristretto mousepad hardinfo audacious --noconfirm
+pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter mousepad galculator xfce4-screenshooter ristretto mousepad audacious --noconfirm
 
 
 systemctl enable NetworkManager lightdm
