@@ -2,7 +2,7 @@
 
 mount /dev/sda1 /boot/efi
 
-pacman -S pacman-contrib --noconfirm
+pacman -S pacman-contrib btrfs-progs --noconfirm
 
 curl -s "https://archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
 
