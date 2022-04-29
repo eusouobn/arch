@@ -16,9 +16,11 @@ parted /dev/sda mkpart "root" btrfs 301MiB 100%
 
 #mkfs.btrfs /dev/sda2
 
-mkdir /mnt/boot/efi
-
 mount /dev/sda2 /mnt
+
+mkdir /mnt/boot/
+
+mkdir /mnt/boot/efi
 
 mount /dev/sda1 /mnt/boot/efi
 
