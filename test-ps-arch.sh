@@ -2,7 +2,7 @@
 
 mount /dev/sda1 /boot/efi
 
-pacman -S pacman-contrib btrfs-progs --noconfirm
+pacman -S nano pacman-contrib btrfs-progs --noconfirm
 
 curl -s "https://archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
 
@@ -14,13 +14,13 @@ hwclock --systohc
 
 mv /etc/locale.gen /etc/locale.gen.bak
 
-echo -e `pt_BR.UTF-8 UTF-8` | tee /etc/locale.gen
+echo -e "pt_BR.UTF-8 UTF-8'" | tee /etc/locale.gen
 
 locale-gen
 
-echo -e `LANG=pt_BR.UTF-8` | tee /etc/locale.conf
+echo -e "LANG=pt_BR.UTF-8" | tee /etc/locale.conf
 
-echo -e `thinkpad-arch` | tee /etc/hostname
+echo -e "thinkpad-arch" | tee /etc/hostname
 
 echo -e "127.0.0.1      localhost.localdomain   localhost\n::1          localhost.localdomain   localhost\n127.0.1.1    thinkpad-arch.localdomain       thinkpad-arch" | tee /etc/hosts
 
