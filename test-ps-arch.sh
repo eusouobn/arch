@@ -2,8 +2,6 @@
 
 mount /dev/sda1 /boot/efi
 
-localectl set-x11-keymap br abnt2 thinkpad
-
 pacman -S nano pacman-contrib btrfs-progs sudo --noconfirm
 
 curl -s "https://archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
