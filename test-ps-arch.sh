@@ -8,6 +8,8 @@ pacman -S nano pacman-contrib btrfs-progs sudo --noconfirm
 
 curl -s "https://archlinux.org/mirrorlist/?country=FR&country=GB&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 -
 
+cp /etc/pacman.conf /etc/pacman.conf.bak && sudo sed -i '37c\ParallelDownloads = 16' /etc/pacman.conf && sudo pacman -Syyyuuu
+
 pacman -S networkmanager intel-ucode grub efibootmgr
 
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -38,7 +40,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch 
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter mousepad galculator xfce4-screenshooter ristretto mousepad audacious xdg-user-dirs--noconfirm
+pacman -Rsnd jack2 && pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber mousepad galculator xfce4-screenshooter ristretto mousepad audacious xdg-user-dirs simplescreenrecorder ffmpeg psensor gimp gnome-disk-utility frei0r-plugins ntfs-3g exfatprogs gsmartcontrol obs-studio uget qbittorrent papirus-icon-theme telegram-desktop gamemode fatsort mpv audacious inkscape audacity kdenlive libreoffice-fresh-pt-br alsa-firmware alsa-utils a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb git go fuse2 base-devel movit --noconfirm
 
 xdg-user-dirs-update
 
@@ -52,5 +54,16 @@ truncate -s 0 /swapfile && chattr +C /swapfile && btrfs property set /swapfile c
 
 echo 'net.ipv4.ping_group_range = 1000 1000' | tee -a /etc/sysctl.d/60-mysql.conf
 
+
+cd /home/bn
+
+git clone http://github.com/eusouobn/xfce
+cd xfce
+tar -xvf xfce-perchannel-xml.tar.xz
+rm -r /home/bn/.config/xfce4/xfconf/xfce-perchannel-xml
+
+mv xfce-perchannel-xml /home/bn/.config/xfce4/xfconf/
+
+rm -r /home/bn/xfce
 
 exit
