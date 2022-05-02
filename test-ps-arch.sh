@@ -14,13 +14,13 @@ hwclock --systohc
 
 mv /etc/locale.gen /etc/locale.gen.bak
 
-echo -e "pt_BR.UTF-8 UTF-8'" | tee /etc/locale.gen
+echo -e 'pt_BR.UTF-8 UTF-8' | tee /etc/locale.gen
 
 locale-gen
 
-echo -e "LANG=pt_BR.UTF-8" | tee /etc/locale.conf
+echo -e 'LANG=pt_BR.UTF-8' | tee /etc/locale.conf
 
-echo -e "thinkpad-arch" | tee /etc/hostname
+echo -e 'thinkpad-arch' | tee /etc/hostname
 
 echo -e "127.0.0.1      localhost.localdomain   localhost\n::1          localhost.localdomain   localhost\n127.0.1.1    thinkpad-arch.localdomain       thinkpad-arch" | tee /etc/hosts
 
