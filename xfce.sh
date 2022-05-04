@@ -1,5 +1,11 @@
 #!/bin/bash
 
+systemctl --user enable pipewire-pulse.service
+
+systemctl --user enable pipewire.service
+
+systemctl --user --now enable wireplumber.service
+
 git clone https://aur.archlinux.org/yay.git
 cd yay && makepkg -si --noconfirm
 
