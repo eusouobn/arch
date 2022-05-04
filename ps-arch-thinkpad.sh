@@ -1,20 +1,16 @@
 #!/bin/bash
 
-pacman -S base-devel nano pacman-contrib btrfs-progs sudo --noconfirm
+pacman -S base-devel git nano pacman-contrib btrfs-progs sudo networkmanager intel-ucode grub efibootmgr --noconfirm
 
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && curl -s "https://archlinux.org/mirrorlist/?country=BR&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | sudo tee /etc/pacman.d/mirrorlist
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && reflector --country Brazil --sort rate --save /etc/pacman.d/mirrorlist
 
 cp /etc/pacman.conf /etc/pacman.conf.bak && sudo sed -i '37c\ParallelDownloads = 16' /etc/pacman.conf && sudo pacman -Syyyuuu
 
-pacman -S networkmanager intel-ucode grub efibootmgr
+cp /etc/pacman.conf /etc/pacman.conf.bak && sed -i '93c\[multilib]' /etc/pacman.conf && sudo sed -i '94c\Include = /etc/pacman.d/mirrorlist' /etc/pacman.conf && pacman -Syyyuu
 
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
-read -p "Press enter to continue"
-
 hwclock --systohc
-
-read -p "Press enter to continue"
 
 mv /etc/locale.gen /etc/locale.gen.bak
 
@@ -34,7 +30,11 @@ passwd
 
 useradd -m bn
 
+usermod -G wheel bn
+
 passwd bn
+
+cp /etc/sudoers /etc/sudoers.bak && sed -i '82c\ %wheel ALL=(ALL:ALL) ALL' /etc/sudoers
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch --removable
 
@@ -50,21 +50,8 @@ echo -e 'vm.dirty_background_ratio = 2 \nvm.dirty_ratio = 5' | tee /etc/sysctl.c
 
 echo -e 'Section "Device"\n Identifier "Intel Graphics"\n Driver "Intel"\n Option "TearFree" "true"\nEndSection' | tee /etc/X11/xorg.conf.d/20-intel.conf
 
-read -p "Press enter to continue"
-
 truncate -s 0 /swapfile && chattr +C /swapfile && btrfs property set /swapfile compression none && fallocate -l 4096M /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo -e '/swapfile none swap defaults 0 0\n' | tee -a /etc/fstab
 
 echo -e 'net.ipv4.ping_group_range = 1000 1000' | tee -a /etc/sysctl.d/60-mysql.conf
-
-#cd /home/bn
-
-#git clone http://github.com/eusouobn/xfce
-#cd xfce
-#tar -xvf xfce-perchannel-xml.tar.xz
-#rm -r /home/bn/.config/xfce4/xfconf/xfce-perchannel-xml
-
-#mv xfce-perchannel-xml /home/bn/.config/xfce4/xfconf/
-
-#rm -r /home/bn/xfce
 
 exit
