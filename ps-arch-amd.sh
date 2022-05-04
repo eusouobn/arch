@@ -4,7 +4,9 @@ pacman -S base-devel nano pacman-contrib btrfs-progs sudo networkmanager amd-uco
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && reflector --country Brazil --sort rate --save /etc/pacman.d/mirrorlist
 
-cp /etc/pacman.conf /etc/pacman.conf.bak && sed -i '37c\ParallelDownloads = 16' /etc/pacman.conf && pacman -Syyyuuu
+cp /etc/pacman.conf /etc/pacman.conf.bak && sed -i '37c\ParallelDownloads = 16' /etc/pacman.conf
+
+cp /etc/pacman.conf /etc/pacman.conf.bak && sed -i '93c\[multilib]' /etc/pacman.conf && sudo sed -i '94c\Include = /etc/pacman.d/mirrorlist' /etc/pacman.conf && pacman -Syyyuu
 
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
@@ -28,7 +30,11 @@ passwd
 
 useradd -m bn
 
+usermod -G wheel bn
+
 passwd bn
+
+cp /etc/sudoers /etc/sudoers.bak && sed -i '82c\ %wheel ALL=(ALL:ALL) ALL' /etc/sudoers
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch --removable
 
