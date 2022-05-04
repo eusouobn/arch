@@ -24,4 +24,6 @@ mv xfce-perchannel-xml /home/bn/.config/xfce4/xfconf/
 
 sudo rm -r /home/bn/xfce
 
+sudo localectl set-x11-keymap br abnt2 thinkpad
+
 exit
