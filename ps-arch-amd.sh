@@ -56,6 +56,6 @@ truncate -s 0 /swapfile && chattr +C /swapfile && btrfs property set /swapfile c
 
 echo -e 'net.ipv4.ping_group_range = 1000 1000' | tee -a /etc/sysctl.d/60-mysql.conf
 
-cp /arch/xfce.sh /home/bn
+cp /arch/xfce.sh /home/bn/
 
 exit
