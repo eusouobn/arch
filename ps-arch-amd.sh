@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S base-devel nano pacman-contrib btrfs-progs sudo networkmanager amd-ucode grub efibootmgr --noconfirm
+pacman -S base-devel git nano pacman-contrib btrfs-progs sudo networkmanager amd-ucode grub efibootmgr --noconfirm
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && reflector --country Brazil --sort rate --save /etc/pacman.d/mirrorlist
 
