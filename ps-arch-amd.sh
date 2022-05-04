@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S base-devel git nano pacman-contrib btrfs-progs sudo networkmanager amd-ucode grub efibootmgr --noconfirm
+pacman -S base-devel git nano pacman-contrib btrfs-progs sudo amd-ucode grub efibootmgr --noconfirm
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && reflector --country Brazil --sort rate --save /etc/pacman.d/mirrorlist
 
@@ -40,7 +40,13 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch 
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-amdgpu xfce4 xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip thunar-archive-plugin galculator xfce4-screenshooter ristretto mousepad hardinfo audacious bluez blueman bluez-utils lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber mousepad galculator xfce4-screenshooter ristretto mousepad audacious xdg-user-dirs simplescreenrecorder ffmpeg psensor gimp gnome-disk-utility frei0r-plugins ntfs-3g exfatprogs gsmartcontrol obs-studio uget qbittorrent papirus-icon-theme telegram-desktop gamemode fatsort mpv audacious inkscape audacity kdenlive libreoffice-fresh-pt-br alsa-firmware alsa-utils a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb git go fuse2 base-devel movit --noconfirm
+pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-amdgpu networkmanager xfce4 lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber xdg-user-dirs --noconfirm
+
+pacman -S xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xfce4-screenshooter ristretto mousepad galculator xfce4-screenshooter ristretto audacious --noconfirm
+
+pacman -S hardinfo audacious bluez blueman bluez-utils xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip thunar-archive-plugin galculator --noconfirm
+
+pacman -S simplescreenrecorder ffmpeg psensor gimp gnome-disk-utility frei0r-plugins ntfs-3g exfatprogs gsmartcontrol obs-studio uget qbittorrent papirus-icon-theme telegram-desktop gamemode fatsort mpv audacious inkscape audacity kdenlive libreoffice-fresh-pt-br alsa-firmware alsa-utils a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb git go fuse2 base-devel movit --noconfirm
 
 xdg-user-dirs-update
 
