@@ -9,4 +9,13 @@ git clone https://aur.archlinux.org/upd72020x-fw.git && cd upd72020x-fw && makep
 
 echo -e 'dxgi.maxDeviceMemory = 1024\ndxvk.numAsyncThreads = 4\ndxvk.numCompilerThreads = 4' | tee ~/.config/dxvk.conf && echo -e '\nDXVK_CONFIG_FILE=/home/bn/.config/dxvk.conf\nDXVK_ASYNC=1\nLFX=1' | sudo tee -a /etc/environment
 
+git clone http://github.com/eusouobn/xfce
+cd xfce
+tar -xvf xfce-perchannel-xml.tar.xz
+rm -r /home/bn/.config/xfce4/xfconf/xfce-perchannel-xml
 
+mv xfce-perchannel-xml /home/bn/.config/xfce4/xfconf/
+
+sudo rm -r /home/bn/xfce
+
+exit
