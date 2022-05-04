@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pacman -S nano pacman-contrib btrfs-progs sudo --noconfirm
+pacman -S base-devel nano pacman-contrib btrfs-progs sudo --noconfirm
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && curl -s "https://archlinux.org/mirrorlist/?country=BR&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | sudo tee /etc/pacman.d/mirrorlist
 
