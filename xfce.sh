@@ -26,4 +26,11 @@ sudo rm -r /home/bn/xfce
 
 sudo localectl set-x11-keymap br abnt2 thinkpad
 
+yay -S fontconfig-ubuntu
+
+sudo pacman -S zsh git wget && sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+sudo sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+
 exit
