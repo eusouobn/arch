@@ -31,10 +31,9 @@ passwd
 useradd -m bn
 
 groupadd -r autologin
+groupadd -r sudo
 
-usermod -G wheel bn
-
-gpasswd -a bn autologin
+usermod -G autologin,sudo,wheel,lp bn
 
 passwd bn
 
