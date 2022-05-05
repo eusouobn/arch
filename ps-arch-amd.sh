@@ -58,8 +58,6 @@ sed -i 12d /etc/profile.d/freetype2.sh && echo -e 'export FREETYPE_PROPERTIES="t
 
 xdg-user-dirs-update
 
-systemctl enable NetworkManager lightdm bluetooth
-
 echo -e 'vm.dirty_background_ratio = 2 \nvm.dirty_ratio = 5' | tee /etc/sysctl.conf && sysctl -p
 
 echo -e 'Section "Device"\n Identifier "AMD"\n Driver "amdgpu"\n Option "TearFree" "true"\nEndSection' | sudo tee /etc/X11/xorg.conf.d/20-amdgpu.conf
@@ -73,5 +71,7 @@ echo -e 'net.ipv4.ping_group_range = 1000 1000' | tee -a /etc/sysctl.d/60-mysql.
 mv /arch /home/bn/
 
 chmod 777 /home/bn/arch
+
+systemctl enable NetworkManager lightdm bluetooth
 
 exit
