@@ -19,8 +19,11 @@ git clone http://github.com/eusouobn/xfce
 cd xfce
 tar -xvf xfce-perchannel-xml.tar.xz
 rm -r /home/bn/.config/xfce4/xfconf/xfce-perchannel-xml
-
 mv xfce-perchannel-xml /home/bn/.config/xfce4/xfconf/
+
+tar -xvf plank.tar.gz
+rm -r /home/bn/.config/plank
+mv plank /home/bn/.config/plank
 
 yay -S fontconfig-ubuntu
 
