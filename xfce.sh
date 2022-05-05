@@ -28,6 +28,8 @@ mkdir ~/.config/fontconfig/
 
 mv ~/arch/fonts.conf ~/.config/fontconfig/
 
+fc-cache -f -v
+
 sudo pacman -S zsh git wget && sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 sudo sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
