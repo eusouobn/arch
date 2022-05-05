@@ -6,6 +6,23 @@ systemctl --user enable pipewire.service
 
 systemctl --user --now enable wireplumber.service
 
+#TECLADO
+pc=$(cat /etc/hostname)
+
+if [ "$pc" = "thinkpad-arch" ];then
+     sudo localectl set-x11-keymap br abnt2 thinkpad
+
+elif [ "$pc" = "amd-arch" ];then
+     sudo localectl set-x11-keymap br abnt2
+fi
+
+#MONTAR STEAM
+pc=$(cat /etc/hostname)
+
+if [ "$pc" = "amd-arch" ];then
+     sh /home/bn/arch/mount-steam.sh
+fi
+
 git clone https://aur.archlinux.org/yay.git
 cd yay && makepkg -si --noconfirm
 
