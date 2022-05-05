@@ -46,7 +46,7 @@ pacman -S vulkan-intel vulkan-icd-loader vulkan-mesa-layers libva-intel-driver l
 
 pacman -S xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xfce4-screenshooter ristretto mousepad galculator xfce4-screenshooter ristretto audacious --noconfirm
 
-pacman -S hardinfo audacious bluez blueman bluez-utils xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip thunar-archive-plugin galculator --noconfirm
+pacman -S plank hardinfo audacious bluez blueman bluez-utils xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip thunar-archive-plugin galculator --noconfirm
 
 pacman -S simplescreenrecorder ffmpeg psensor gimp gnome-disk-utility frei0r-plugins ntfs-3g exfatprogs gsmartcontrol obs-studio uget qbittorrent papirus-icon-theme telegram-desktop gamemode fatsort mpv audacious inkscape audacity kdenlive libreoffice-fresh-pt-br alsa-firmware alsa-utils a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb git go fuse2 base-devel movit ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji  ttf-roboto ttf-roboto-mono ttf-opensans --noconfirm
 
