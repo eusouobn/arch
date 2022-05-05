@@ -68,4 +68,6 @@ echo -e 'net.ipv4.ping_group_range = 1000 1000' | tee -a /etc/sysctl.d/60-mysql.
 
 mv /arch /home/bn/
 
+chmod 777 /home/bn/arch
+
 exit
