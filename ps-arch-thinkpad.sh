@@ -30,7 +30,11 @@ passwd
 
 useradd -m bn
 
+groupadd -r autologin
+
 usermod -G wheel bn
+
+gpasswd -a bn autologin
 
 passwd bn
 
@@ -39,6 +43,8 @@ cp /etc/sudoers /etc/sudoers.bak && sed -i '82c\ %wheel ALL=(ALL:ALL) ALL' /etc/
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch --removable
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+
 
 pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel networkmanager xfce4 lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber xdg-user-dirs --noconfirm
 
