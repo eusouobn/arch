@@ -30,7 +30,11 @@ passwd
 
 useradd -m bn
 
+groupadd -r autologin
+
 usermod -G wheel bn
+
+gpasswd -a bn autologin
 
 passwd bn
 
