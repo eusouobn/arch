@@ -16,6 +16,17 @@ elif [ "$pc" = "amd-arch" ];then
      sudo localectl set-x11-keymap br abnt2
 fi
 
+#GRUB
+
+if [ "$pc" = "thinkpad-arch" ];then
+     sudo sed -i '2c\GRUB_TIMEOUT=1' /etc/default/grub && sudo sed -i '5c\GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off psmouse.synaptics_intertouch=0"' /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+elif [ "$pc" = "amd-arch" ];then
+     sudo sed -i '2c\GRUB_TIMEOUT=1' /etc/default/grub && sudo sed -i '5c\GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off"' /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+fi
+
+
 #MONTAR STEAM
 pc=$(cat /etc/hostname)
 
