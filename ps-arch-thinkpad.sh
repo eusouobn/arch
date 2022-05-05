@@ -40,7 +40,21 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch 
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel xfce4 xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip thunar-archive-plugin galculator xfce4-screenshooter ristretto mousepad hardinfo audacious bluez blueman bluez-utils lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber mousepad galculator xfce4-screenshooter ristretto mousepad audacious xdg-user-dirs simplescreenrecorder ffmpeg psensor gimp gnome-disk-utility frei0r-plugins ntfs-3g exfatprogs gsmartcontrol obs-studio uget qbittorrent papirus-icon-theme telegram-desktop gamemode fatsort mpv audacious inkscape audacity kdenlive libreoffice-fresh-pt-br alsa-firmware alsa-utils a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb git go fuse2 base-devel movit
+pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel networkmanager xfce4 lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber xdg-user-dirs --noconfirm
+
+pacman -S vulkan-intel vulkan-icd-loader vulkan-mesa-layers libva-intel-driver lib32-mesa lib32-vulkan-intel  lib32-vulkan-icd-loader lib32-libva-intel-driver lib32-vulkan-mesa-layers mesa-demos xorg-xdpyinfo intel-ucode mesa-utils --noconfirm
+
+pacman -S xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xfce4-screenshooter ristretto mousepad galculator xfce4-screenshooter ristretto audacious --noconfirm
+
+pacman -S hardinfo audacious bluez blueman bluez-utils xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip thunar-archive-plugin galculator --noconfirm
+
+pacman -S simplescreenrecorder ffmpeg psensor gimp gnome-disk-utility frei0r-plugins ntfs-3g exfatprogs gsmartcontrol obs-studio uget qbittorrent papirus-icon-theme telegram-desktop gamemode fatsort mpv audacious inkscape audacity kdenlive libreoffice-fresh-pt-br alsa-firmware alsa-utils a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 xvidcore gstreamer gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb git go fuse2 base-devel movit ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji  ttf-roboto ttf-roboto-mono ttf-opensans --noconfirm
+
+pacman -S wine-staging wine-mono wine-gecko gamemode lib32-gamemode giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d lib32-gnutls winetricks --noconfirm
+
+ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d && ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d && ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+
+sed -i 12d /etc/profile.d/freetype2.sh && echo -e 'export FREETYPE_PROPERTIES="truetype:interpreter-version=40"' | tee -a /etc/profile.d/freetype2.sh
 
 xdg-user-dirs-update
 
@@ -55,5 +69,7 @@ truncate -s 0 /swapfile && chattr +C /swapfile && btrfs property set /swapfile c
 echo -e 'net.ipv4.ping_group_range = 1000 1000' | tee -a /etc/sysctl.d/60-mysql.conf
 
 mv /arch /home/bn/
+
+localectl set-x11-keymap br abnt2 thinkpad
 
 exit
