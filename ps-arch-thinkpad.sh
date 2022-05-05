@@ -81,6 +81,6 @@ chown -R bn:bn /home/bn/arch/
 
 chmod 777 /home/bn/arch
 
-systemctl enable NetworkManager lightdmbluetooth
+systemctl enable NetworkManager lightdm bluetooth
 
 exit
