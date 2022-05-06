@@ -4,7 +4,7 @@ sudo pacman -S vulkan-intel vulkan-icd-loader vulkan-mesa-layers libva-intel-dri
 
 sudo pacman -S xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xfce4-screenshooter ristretto mousepad galculator xfce4-screenshooter ristretto audacious --noconfirm
 
-sudo pacman -S firefox-i18n-pt-br ttf-ubuntu-font-family plank hardinfo audacious bluez blueman bluez-utils zenity --noconfirm
+sudo pacman -S plank firefox firefox-i18n-pt-br ttf-ubuntu-font-family plank hardinfo audacious bluez blueman bluez-utils zenity --noconfirm
 
 sudo pacman -S xarchiver file-roller tar zip gzip lzip lzop p7zip lrzip bzip2 zip unzip unrar p7zip unrar cpio thunar-archive-plugin --noconfirm
 
