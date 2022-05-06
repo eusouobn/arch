@@ -43,15 +43,13 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch 
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
+pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-amdgpu networkmanager xfce4 lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber xdg-user-dirs --noconfirm
 
-
-pacman -S networkmanager xorg-server xorg-xinit xterm xf86-video-intel networkmanager xfce4 lightdm lightdm-gtk-greeter pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber xdg-user-dirs --noconfirm
-
-pacman -S vulkan-intel vulkan-icd-loader vulkan-mesa-layers libva-intel-driver lib32-mesa lib32-vulkan-intel  lib32-vulkan-icd-loader lib32-libva-intel-driver lib32-vulkan-mesa-layers mesa-demos xorg-xdpyinfo intel-ucode mesa-utils --noconfirm
+pacman -S vulkan-radeon vulkan-mesa-layers libva-mesa-driver vulkan-icd-loader lib32-mesa lib32-vulkan-radeon lib32-vulkan-icd-loader lib32-vulkan-mesa-layers mesa-demos xorg-xdpyinfo amd-ucode mesa-utils --noconfirm
 
 pacman -S xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xfce4-screenshooter ristretto mousepad galculator xfce4-screenshooter ristretto audacious --noconfirm
 
-pacman -S ttf-ubuntu-font-family plank hardinfo audacious bluez blueman bluez-utils galculator --noconfirm
+pacman -S ttf-ubuntu-font-family plank hardinfo audacious bluez blueman bluez-utils --noconfirm
 
 pacman -S xarchiver file-roller tar zip gzip lzip lzop p7zip lrzip bzip2 zip unzip unrar p7zip unrar cpio thunar-archive-plugin --noconfirm
 
