@@ -49,7 +49,7 @@ pacman -S vulkan-radeon vulkan-mesa-layers libva-mesa-driver vulkan-icd-loader l
 
 pacman -S xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin xfce4-screenshooter ristretto mousepad galculator xfce4-screenshooter ristretto audacious --noconfirm
 
-pacman -S ttf-ubuntu-font-family plank hardinfo audacious bluez blueman bluez-utils --noconfirm
+pacman -S ttf-ubuntu-font-family plank hardinfo audacious bluez blueman bluez-utils zenity --noconfirm
 
 pacman -S xarchiver file-roller tar zip gzip lzip lzop p7zip lrzip bzip2 zip unzip unrar p7zip unrar cpio thunar-archive-plugin --noconfirm
 
