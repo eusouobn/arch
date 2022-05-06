@@ -53,7 +53,7 @@ git clone http://github.com/eusouobn/xfce
 cd xfce
 
 ###XFCE
-tar -xvf xfce-perchannel-xml.tar.xz
+tar -xvf xfce-perchannel-xml.tar.gz
 rm -r /home/bn/.config/xfce4/xfconf/xfce-perchannel-xml
 mv xfce-perchannel-xml /home/bn/.config/xfce4/xfconf/
 
