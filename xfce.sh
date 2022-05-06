@@ -69,8 +69,7 @@ mv autostart /home/bn/.config/
 
 ###ICONS
 tar -xvf icons.tar.gz
-sudo mkdir /usr/share/icons/Arch
-sudo mv archlogo.svg /usr/share/icons/Arch/
+sudo mv archlogo.svg /usr/share/pixmaps
 
 ###FONTCONFIG
 yay -S fontconfig-ubuntu
