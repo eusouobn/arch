@@ -8,6 +8,10 @@ systemctl --user enable pipewire.service
 
 systemctl --user --now enable wireplumber.service
 
+###INSTALAÇÃO
+
+sudo pacman -S firefox-i18n-pt-br xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin galculator plank gimp inkscape gnome-disk-utility papirus-icon-theme audacious audacity kdenlive 
+
 ###TECLADO
 pc=$(cat /etc/hostname)
 
