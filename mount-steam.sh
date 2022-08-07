@@ -12,7 +12,7 @@ do
 echo -e "\nUUID=$line /steam  btrfs  defaults  0 0" | sudo tee -a /etc/fstab
 done
 
-sudo blkid -s UUID -o value /dev/sdb1 | while read line
+sudo blkid -s UUID -o value /dev/sdb2 | while read line
 do
 echo -e "\nUUID=$line /lutris  btrfs  defaults  0 0" | sudo tee -a /etc/fstab
 done
